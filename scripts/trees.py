@@ -70,6 +70,7 @@ def drawTree(app, treeObject):
 ''' Define function to draw apples '''
 def drawApple(cx, cy, size=Apple.size):
     apple = openImage('../graphics/durian.png')
+    size *= 2
     apple = apple.resize((size, size))
     apple = CMUImage(apple)
     drawImage(apple, cx, cy, align = 'center')
