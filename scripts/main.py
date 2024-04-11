@@ -174,7 +174,7 @@ def redrawAll(app):
     '''Draw fallen apples'''   
     for apple in app.groundApples:
         cx, cy, cr = apple.cx, apple.cy, apple.cr
-        if inScreen(app, cx, cy): trees.drawApple(cx, cy, cr)
+        if inScreen(app, cx, cy): trees.drawApple(cx, cy, cr, split=True)
 
     '''Draw goose'''   
     gooseSprite = app.gooseSprites[app.gooseSpriteCounter]
@@ -309,6 +309,10 @@ def onKeyPress(app, key):
     if key == 'e':
         if goose.isNear(app, app.houses[0]) or goose.isNear(app, app.houses[1]) or goose.isNear(app, app.houses[2]):
             app.showWinScreen = True
+
+    if key == 'u':
+        if app.gooseTrapped:
+            app.gooseTrapped = False
 
 def onKeyRelease(app, key):
     # Stop goose walking animation if up/down/left/right released

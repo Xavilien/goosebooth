@@ -68,8 +68,11 @@ def drawTree(app, treeObject):
             drawApple(lx+treeObject.cx, ly+treeObject.cy, int(cr/4))
 
 ''' Define function to draw apples '''
-def drawApple(cx, cy, size=Apple.size):
-    apple = openImage('../graphics/durian.png')
+def drawApple(cx, cy, size=Apple.size, split=False):
+    if split:
+        apple = openImage('../graphics/duriansplit.png')
+    else:
+        apple = openImage('../graphics/durian.png')
     size *= 2
     apple = apple.resize((size, size))
     apple = CMUImage(apple)
