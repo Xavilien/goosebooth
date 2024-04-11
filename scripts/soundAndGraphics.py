@@ -16,6 +16,7 @@ def defineSounds(app):
     app.honkSound = loadSound("../sound/honk.wav")
     app.cryingSound = loadSound("../sound/anthony.mp3")
     app.thudSound = loadSound("../sound/thud.mp3")
+    app.victorySound = loadSound("../sound/victory.mp3")
 
 def openImage(fileName): 
         return Image.open(os.path.join(pathlib.Path(__file__).parent,fileName))

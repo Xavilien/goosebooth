@@ -309,6 +309,7 @@ def onKeyPress(app, key):
     if key == 'e':
         if goose.isNear(app, app.houses[0]) or goose.isNear(app, app.houses[1]) or goose.isNear(app, app.houses[2]):
             app.showWinScreen = True
+            app.victorySound.play()
 
     if key == 'u':
         if app.gooseTrapped:
