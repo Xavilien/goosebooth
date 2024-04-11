@@ -148,6 +148,8 @@ def onAppStart(app):
     ''' Initially, instruction screen is hidden/'''
     app.showGuidebook = False
 
+    app.showWinScreen = False
+
 ''' Draw objects in following order to make perspective/overlap correct:
 Roads --> Flowers --> Goose footsteps --> Houses, Fallen Apples, Goose, Tree, Boy --> Guidebook --> Instructions'''
 def redrawAll(app):
@@ -208,6 +210,12 @@ def redrawAll(app):
     if app.showGuidebook:
         drawRect(0, 0, app.width, app.height, opacity = 50)
         instructions.drawInstructions()
+
+    if app.showWinScreen:
+        drawRect(0, 0, app.width, app.height, fill = 'black', opacity = 50)
+        offset = 20
+        drawLabel("Congratulations!", app.width/2, app.height/2-offset, fill = 'white', size = 30)
+        drawLabel("You've found the hawker centre!", app.width/2, app.height/2+offset, fill = 'white', size = 30)
 
 
 def onKeyHold(app, keys):
@@ -296,10 +304,11 @@ def onKeyPress(app, key):
     ''' 4. Press 'x' to close guidebook '''
     if key == 'x':
         app.showGuidebook = False
+        app.showWinScreen = False
 
     if key == 'e':
         if goose.isNear(app, app.houses[0]) or goose.isNear(app, app.houses[1]) or goose.isNear(app, app.houses[2]):
-            app.showGuidebook = True
+            app.showWinScreen = True
 
 def onKeyRelease(app, key):
     # Stop goose walking animation if up/down/left/right released

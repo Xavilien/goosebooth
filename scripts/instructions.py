@@ -10,7 +10,7 @@ def drawGuidebook():
 
 ''' Function to draw instructions in redrawAll (main.py)'''
 def drawInstructions():
-    book = openImage(f'../graphics/instructions.png')
+    book = openImage(f'../graphics/instructions2.png')
     book = book.resize((400, 282))
     book = CMUImage(book)
     drawImage(book, app.width/2, app.height/2, align = 'center')
